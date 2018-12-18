@@ -44,7 +44,21 @@ app.put("/profiles/:id", (req, res) => {
 app.delete("/profiles/:id", (req, res) => {
     queries.deleteProfile(req.params.id).then(res.sendStatus(204))
 })
-
+app.get("/ratings", (req, res) => {
+    queries.getAllRatings().then(ratingsResponse => res.json(ratingsResponse))
+})
+app.get("/ratings/:id", (req, res) => {
+    queries.getRatingsById(req.params.id).then(responseIdRating => res.status(200).json(responseIdRating))
+})
+app.post("/ratings", (req, res) => {
+    queries.createRating(req.body).then(newRating => res.json(newRating))
+})
+app.put("/ratings/:id", (req, res) => {
+    queries.updateRating(req.params.id, req.body).then(updatedRating => res.json(updatedRating))
+})
+app.delete("/ratings/:id", (req, res) => {
+    queries.deleteRating(req.params.id).then(res.sendStatus(204))
+})
 
 
 app.listen(port, () => {

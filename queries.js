@@ -47,5 +47,29 @@ module.exports = {
         return db("profiles")
             .where("id", id)
             .del()
+    }, 
+    getAllRatings() {
+        return db("ratings")
+    }, 
+    getRatingsById(id) {
+        return db("ratings")
+            .where("id", id)
+            .first()
+    },
+    createRating(newRating) {
+        return db("ratings")
+            .insert(newRating)
+            .returning("*")
+    }, 
+    updateRating(id, rating) {
+        return db("ratings")
+            .where("id", id)
+            .update(rating)
+            .returning("*")
+    }, 
+    deleteRating(id) {
+        return db("ratings") 
+            .where("id", id)
+            .del()
     }
 }
