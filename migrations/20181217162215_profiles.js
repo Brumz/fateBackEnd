@@ -4,7 +4,7 @@ exports.up = function (knex, Promise) {
         profile.string("first_name").notNullable()
         profile.string("last_name").notNullable()
         profile.integer("accountUser_id").references("id").inTable("accountUsers")
-        profile.integer("rating_id").references("id").inTable("Ratings")
+        profile.integer("rating_id").references("id").inTable("ratings")
     })
 };
 
