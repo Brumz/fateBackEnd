@@ -44,6 +44,12 @@ app.put("/profiles/:id", (req, res) => {
 app.delete("/profiles/:id", (req, res) => {
     queries.deleteProfile(req.params.id).then(res.sendStatus(204))
 })
+app.get("/ratings", (req, res) => {
+    queries.getAllRatings().then(ratingsResponse => res.json(ratingsResponse))
+})
+app.get("/ratings/:id", (req, res) => {
+    queries.getRatingsById(req.params.id).then(responseIdRating => res.status(200).json(responseIdRating))
+})
 
 
 

@@ -47,5 +47,13 @@ module.exports = {
         return db("profiles")
             .where("id", id)
             .del()
+    }, 
+    getAllRatings() {
+        return db("ratings")
+    }, 
+    getRatingsById(id) {
+        return db("ratings")
+            .where("id", id)
+            .first()
     }
 }
