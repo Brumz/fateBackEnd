@@ -53,7 +53,9 @@ app.get("/ratings/:id", (req, res) => {
 app.post("/ratings", (req, res) => {
     queries.createRating(req.body).then(newRating => res.json(newRating))
 })
-
+app.put("/ratings/:id", (req, res) => {
+    queries.updateRating(req.params.id, req.body).then(updatedRating => res.json(updatedRating))
+})
 
 
 app.listen(port, () => {

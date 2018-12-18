@@ -60,5 +60,11 @@ module.exports = {
         return db("ratings")
             .insert(newRating)
             .returning("*")
+    }, 
+    updateRating(id, rating) {
+        return db("ratings")
+            .where("id", id)
+            .update(rating)
+            .returning("*")
     }
 }
