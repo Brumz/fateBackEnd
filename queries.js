@@ -66,5 +66,10 @@ module.exports = {
             .where("id", id)
             .update(rating)
             .returning("*")
+    }, 
+    deleteRating(id) {
+        return db("ratings") 
+            .where("id", id)
+            .del()
     }
 }

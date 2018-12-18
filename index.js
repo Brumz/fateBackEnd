@@ -56,6 +56,9 @@ app.post("/ratings", (req, res) => {
 app.put("/ratings/:id", (req, res) => {
     queries.updateRating(req.params.id, req.body).then(updatedRating => res.json(updatedRating))
 })
+app.delete("/ratings/:id", (req, res) => {
+    queries.deleteRating(req.params.id).then(res.sendStatus(204))
+})
 
 
 app.listen(port, () => {
