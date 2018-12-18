@@ -29,6 +29,21 @@ app.put("/accountusers/:id", (req, res) => {
 app.delete("/accountusers/:id", (req, res) => {
     queries.deleteAccountUser(req.params.id).then(res.sendStatus(204))
 })
+app.get("/profiles", (req, res) => {
+    queries.getAllProfiles().then(profiles => res.json(profiles))
+})
+app.get("/profiles/:id", (req, res) => {
+    queries.getProfileById(req.params.id).then(profile => res.status(200).json(profile))
+})
+app.post("/profiles", (req, res) => {
+    queries.createProfile(req.body).then(newProfile => res.json(newProfile))
+})
+app.put("/profiles/:id", (req, res) => {
+    queries.updateProfile(req.params.id, req.body).then(updateProfile => res.json(updateProfile))
+})
+app.delete("/profiles/:id", (req, res) => {
+    queries.deleteProfile(req.params.id).then(res.sendStatus(204))
+})
 
 
 
