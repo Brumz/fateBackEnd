@@ -50,6 +50,9 @@ app.get("/ratings", (req, res) => {
 app.get("/ratings/:id", (req, res) => {
     queries.getRatingsById(req.params.id).then(responseIdRating => res.status(200).json(responseIdRating))
 })
+app.post("/ratings", (req, res) => {
+    queries.createRating(req.body).then(newRating => res.json(newRating))
+})
 
 
 
